@@ -16,7 +16,7 @@ class GesturesController: NSObject, FLT_SETTINGSGesturesSettingsInterface, UIGes
         case .singleTap:
             let cgpoint = gestureManager.singleTapGestureRecognizer.location(in: mapView)
             let point = Point(mapView.mapboxMap.coordinate(for: cgpoint))
-            self.onGestureListener?.onTap(FLT_GESTURESScreenCoordinate.makeWith(x: NSNumber(value: point.coordinates.latitude), y: NSNumber(value: point.coordinates.longitude)), point: <String, dynamic>{ "x": cgpoint.x, "y": cgpoint.y }, completion: {_ in })
+            self.onGestureListener?.onTap(FLT_GESTURESScreenCoordinate.makeWith(x: NSNumber(value: point.coordinates.latitude), y: NSNumber(value: point.coordinates.longitude)), point: [ "x": cgpoint.x, "y": cgpoint.y ], completion: {_ in })
         default: break
         }
     }
